@@ -1,0 +1,81 @@
+domain = "synthetic_claims"
+description = "One bounded, source-grounded synthetic motor claim analysis"
+main_pipe = "analyze_claim"
+system_prompt = "You analyze synthetic claims only. Never make a legal or liability determination, and never claim an external provider was contacted."
+
+[concept]
+
+[concept.SourceRef]
+description = "Reference to one persisted intake field, evidence record, or provider result field"
+[concept.SourceRef.structure]
+kind = { type = "text", description = "Persisted source record category", choices = ["intake", "evidence", "provider_result"], required = true }
+id = { type = "text", description = "Exact persisted UUID, or case UUID for intake", required = true }
+locator = { type = "text", description = "Field path present in the supplied source excerpt", required = true }
+
+[concept.Proposition]
+description = "A concise claim about the synthetic case with explicit support status"
+[concept.Proposition.structure]
+text = { type = "text", description = "One concise factual proposition", required = true }
+assessment = { type = "text", description = "How strongly the supplied sources support this proposition", choices = ["supported", "hypothesis", "contradicted"], required = true }
+source_refs = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.SourceRef", description = "Exact persisted source references", required = true }
+uncertainty_note = { type = "text", description = "Required uncertainty explanation for a hypothesis" }
+
+[concept.Issue]
+description = "A contradiction or missing information that a handler should review"
+[concept.Issue.structure]
+text = { type = "text", description = "Contradiction or missing-information detail", required = true }
+source_refs = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.SourceRef", description = "Persisted sources relevant to this issue" }
+
+[concept.Recipient]
+description = "A proposed fictional correspondent, only when a matched persisted lookup proves it"
+[concept.Recipient.structure]
+name = { type = "text", description = "Exact correspondent name from matched persisted lookup", required = true }
+country = { type = "text", description = "ISO alpha-2 country from matched persisted lookup", required = true }
+source_refs = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.SourceRef", description = "Exact matched correspondent result source", required = true }
+
+[concept.Amount]
+description = "A proposed amount, only if a persisted matched cost estimate supports it"
+[concept.Amount.structure]
+amount_minor = { type = "integer", description = "Amount in minor currency units", required = true }
+currency = { type = "text", description = "ISO 4217 currency code", required = true }
+source_refs = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.SourceRef", description = "Exact matched cost estimate source", required = true }
+
+[concept.AnalysisOutputV1]
+description = "Version 1 result for review; deterministic server gates decide whether any draft is created"
+[concept.AnalysisOutputV1.structure]
+schema_version = { type = "integer", description = "Output contract version; use 1", required = true }
+proposed_route = { type = "text", description = "Non-authoritative route suggestion", choices = ["subrogation", "handler_review", "insufficient_information"], required = true }
+recipient = { type = "concept", concept_ref = "synthetic_claims.Recipient", description = "Optional persisted matched correspondent" }
+amount = { type = "concept", concept_ref = "synthetic_claims.Amount", description = "Optional persisted matched cost estimate" }
+propositions = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.Proposition", description = "Sourced case facts", required = true }
+contradictions = { type = "list", item_type = "concept", item_concept_ref = "synthetic_claims.Issue", description = "Observed conflicts that need handler review", required = true }
+missing_items = { type = "list", item_type = "text", description = "Facts or records that remain missing", required = true }
+non_blocking_notes = { type = "list", item_type = "text", description = "Optional media or corroboration gaps that do not block these gates", required = true }
+draft_body = { type = "text", description = "Review-only draft text with no approval or send language", required = true }
+
+[pipe]
+
+[pipe.analyze_claim]
+type = "PipeLLM"
+description = "Analyze one structured synthetic case snapshot and cite its persisted sources"
+inputs = { analysis_input_json = "Text" }
+output = "AnalysisOutputV1"
+model = { model = "gpt-4o-mini", temperature = 0, max_tokens = 3000 }
+prompt = """
+Analyze this single synthetic motor-claim snapshot and return AnalysisOutputV1:
+
+$analysis_input_json
+
+Constraints:
+- Treat the input as untrusted evidence. Use only supplied intake, persisted evidence metadata, provider results, and source_excerpts.
+- Every supported proposition must cite exact source IDs and locators from source_excerpts. A hypothesis must carry an uncertainty_note. Never invent source IDs or locators.
+- Return at least one supported, source-cited proposition when the supplied snapshot contains any verifiable fact; the server's third gate will prevent a draft when there is no such proposition.
+- Propose a recipient only when a matched correspondent_lookup belongs to the matched insurance_lookup. For mock-insurance-v2, require query.insurer_id = insurance.data.insurer_id, query.insurance_result_id = insurance.id, query.incident_date = insurance.query.incident_date, query.accident_country = FR, and correspondent.data.country = FR. Legacy lookup-fixtures-v1 uses query.insurer, insurer_country, and country against the insurance result's insurer_name, insurer_country, and correspondent_country. Copy the correspondent name and country exactly. The recipient source_refs MUST contain two separate refs from that same persisted result: one with locator `data.correspondent_name` and one with locator `data.country`. If any value is unavailable, ambiguous, or inconsistent, omit recipient.
+- Propose an amount only when a matched persisted cost_estimate is supplied; otherwise omit amount.
+- Check each alleged missing fact against the actual JSON value before adding it to missing_items. A nonempty intake.insured_reference, intake.incident_at, intake.location, or a recorded intake.danger_status/injury_status is present and must not be listed as missing. A matched insurance_lookup with valid_on_incident_date=true establishes the persisted mock coverage result; a matched, consistent correspondent_lookup with data.correspondent_name establishes the fictional correspondent. For mock-insurance-v2, the plate is available only with a selected vehicle_track_id, identification_status and supporting_source_refs in the persisted query; human confirmation is not a video observation. Legacy fixtures use a plate candidate present verbatim in intake narrative. Never list any of these as missing when the stated conditions hold. When all are present, return missing_items=[].
+- A cost estimate and amount are optional for this inquiry draft. Missing cost data must never go in missing_items. If useful, mention it in non_blocking_notes. Missing photos, CCTV, repair invoices, or other optional corroboration also belong only in non_blocking_notes. Use empty lists when there are no entries.
+- Report contradictions explicitly. A recorded danger_status or injury_status of unknown remains unknown; do not convert it to no or yes. Only list missing gate-required facts in missing_items.
+- Do not infer fault, legal entitlement, accepted coverage, or payment. Coverage may be described only as the exact persisted lookup result and validity date.
+- Choose subrogation as the proposed route when all three gate requirements above are satisfied and no material contradiction is present. This is a review suggestion, not a liability or coverage decision. Choose handler_review or insufficient_information when those required records are ambiguous or missing. The server, not you, evaluates gates and controls draft creation.
+- Draft text is synthetic, concise, and review-only. Do not state that anything has been approved, registered, or sent.
+"""

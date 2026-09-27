@@ -1,0 +1,26 @@
+# Project catalog for the active OpenAI-only routing profile.
+[defaults]
+model_type = "llm"
+sdk = "openai_responses"
+structure_method = "instructor/openai_responses_tools"
+thinking_mode = "none"
+
+# https://developers.openai.com/api/docs/models/gpt-6-luna
+[gpt-6-luna]
+inputs = ["text", "images"]
+outputs = ["text", "structured"]
+costs = { input = 0.1, output = 0.5 }
+thinking_mode = "manual"
+
+# Retained for the historical v1 method and image-generation preset.
+[gpt-4o-mini]
+inputs = ["text", "images", "pdf"]
+outputs = ["text", "structured"]
+costs = { input = 0.15, output = 0.6 }
+
+[gpt-image-2]
+sdk = "openai_img_gen"
+model_type = "img_gen"
+inputs = ["text", "images"]
+outputs = ["image"]
+costs = { input = 8, output = 30 }

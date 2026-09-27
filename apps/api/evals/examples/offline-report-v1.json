@@ -1,0 +1,996 @@
+{
+  "app_commit": "3c5b916f9c5721e203338d7d114541f753d05462",
+  "blocking_failure": false,
+  "by_matrix": {
+    "agents": {
+      "failed": 0,
+      "not_applicable": 0,
+      "not_tested": 26,
+      "passed": 0
+    },
+    "ux": {
+      "failed": 0,
+      "not_applicable": 0,
+      "not_tested": 16,
+      "passed": 0
+    }
+  },
+  "dataset_id": "s16-matrix",
+  "dataset_sha256": "d0554f3606654449f5db5f7e9f99f8c0dce4fd2ec33099a90ca7ece6be4b2c09",
+  "dataset_version": 1,
+  "media_sha256": {
+    "g1-photo-detail": "f4d31bd9e6100fd862c15ffd1afd35b3dbc7120ba4d07c3d40943218573dbc3f",
+    "g1-photo-wide": "61ab6063a004314b849914a5e50bf632f6df11a7faebfd65135124e17fa73137",
+    "g1-video": "a303991d762676b6cebaadc9faa5ae27118efd91bfcbb6c86cf438e276224904",
+    "g2-photo-detail": "b1d137905f3fe678c3b50253e703bd042efa0710c97716846d134bf3cb2d9b80",
+    "g2-photo-wide": "2bd5a458c5b712d88accf2750d1a75fe92ef1aa4d5a3e174a0641fb0e7342aa5",
+    "g2-video": "4f97e6c71532ec7e427a47d65764e5d46efc68940c89b1fcd48a1beb3936d6f5",
+    "g3-photo-detail": "414e45a7cab7faa766562b7eacbd8979078d650ed7253285d157d1c3b12da668",
+    "g3-photo-wide": "7f2b35c7916b2dbe8b122afb629bae8af319ebf1651f695208b637d196fbea08",
+    "g3-video": "c528dea1f2fa78f2910325d46e67b090e75bca3ef7daaed422d203ccbba8d0af"
+  },
+  "mode": "offline",
+  "reference_sha256": "cc8b22400bfcbf67f2b9cd204db05e986cf8a1934f887df69ed156fcfc36fca7",
+  "results": [
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "V06",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "S01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "S02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "S03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "I06",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "N06",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "L01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "L02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "after_impact_fixture_missing"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "L03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "C01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "C02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "agent_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "S04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "S05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U06",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "U07",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A01",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A02",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A03",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A04",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A05",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A06",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    },
+    {
+      "actual_summary": null,
+      "cost_units": 0,
+      "duration_ms": 0,
+      "eval_id": "A07",
+      "gate_checks": [],
+      "mode": "offline",
+      "reason_codes": [
+        "ux_flow_not_run_offline"
+      ],
+      "run_id": "00000000-0000-4000-8000-000000000016",
+      "source_checks": [],
+      "started_at": "2026-09-25T00:00:00+00:00",
+      "trace_ref": null,
+      "verdict": "not_tested"
+    }
+  ],
+  "run_id": "00000000-0000-4000-8000-000000000016",
+  "schema_version": 1,
+  "started_at": "2026-09-25T00:00:00+00:00",
+  "sub_suites": [
+    {
+      "case_results": [
+        {
+          "id": "complete-supported-claim",
+          "passed": true,
+          "scores": {
+            "draft_gate_expectation": true,
+            "expected_gates": true,
+            "expected_route": true,
+            "no_unsupported_liability_finding": true,
+            "recipient_expectation": true,
+            "schema_valid": true,
+            "sources_valid": true,
+            "uncertainty_preserved": true
+          }
+        },
+        {
+          "id": "ambiguous-plate-blocked",
+          "passed": true,
+          "scores": {
+            "draft_gate_expectation": true,
+            "expected_gates": true,
+            "expected_route": true,
+            "no_unsupported_liability_finding": true,
+            "recipient_expectation": true,
+            "schema_valid": true,
+            "sources_valid": true,
+            "uncertainty_preserved": true
+          }
+        },
+        {
+          "id": "missing-cctv-remains-optional",
+          "passed": true,
+          "scores": {
+            "draft_gate_expectation": true,
+            "expected_gates": true,
+            "expected_route": true,
+            "no_unsupported_liability_finding": true,
+            "recipient_expectation": true,
+            "schema_valid": true,
+            "sources_valid": true,
+            "uncertainty_preserved": true
+          }
+        },
+        {
+          "id": "contradictory-coverage-date-blocked",
+          "passed": true,
+          "scores": {
+            "draft_gate_expectation": true,
+            "expected_gates": true,
+            "expected_route": true,
+            "no_unsupported_liability_finding": true,
+            "recipient_expectation": true,
+            "schema_valid": true,
+            "sources_valid": true,
+            "uncertainty_preserved": true
+          }
+        },
+        {
+          "id": "unsupported-liability-stays-reported",
+          "passed": true,
+          "scores": {
+            "draft_gate_expectation": true,
+            "expected_gates": true,
+            "expected_route": true,
+            "no_unsupported_liability_finding": true,
+            "recipient_expectation": true,
+            "schema_valid": true,
+            "sources_valid": true,
+            "uncertainty_preserved": true
+          }
+        }
+      ],
+      "dataset_name": "claims-analysis-golden-v1",
+      "failed_cases": 0,
+      "fixture_sha256": null,
+      "matrix_verdicts_awarded": 0,
+      "name": "analysis_golden",
+      "passed_cases": 5
+    },
+    {
+      "case_results": [
+        {
+          "id": "fr_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "fr_expired",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "fr_not_yet_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "fr_policy_unknown",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "fr_plate_absent",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_expired",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_not_yet_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_policy_unknown",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_plate_absent",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_partial",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "uk_no_correspondent",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_correspondent_status": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g1_fr_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g1_uk_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_correspondent_identity": true,
+            "expected_correspondent_status": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g2_fr_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g2_uk_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_correspondent_identity": true,
+            "expected_correspondent_status": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g3_fr_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g3_uk_active",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_correspondent_identity": true,
+            "expected_correspondent_status": true,
+            "expected_insurer_identity": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g2_uk_partial",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        },
+        {
+          "id": "g2_uk_alternative_absent",
+          "passed": true,
+          "scores": {
+            "coverage_on_incident_date": true,
+            "expected_reason": true,
+            "expected_status": true
+          }
+        }
+      ],
+      "dataset_name": "claims-insurance-probes-v2",
+      "failed_cases": 0,
+      "fixture_sha256": "53d1081f51f03316e7a55ef5f56eb2dbcb6b236cd528848888a6dbbc6b5e63bc",
+      "matrix_verdicts_awarded": 0,
+      "name": "mock_insurance_probes",
+      "passed_cases": 20
+    }
+  ]
+}

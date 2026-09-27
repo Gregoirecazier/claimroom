@@ -1,0 +1,56 @@
+{
+  "function": {
+    "name": "next_intake_step",
+    "parameters": {
+      "type": "object",
+      "required": [
+        "facts"
+      ],
+      "properties": {
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "field",
+              "value",
+              "excerpt"
+            ],
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": "Après chaque réponse de l’appelant, obtenir la prochaine question P0 ou la décision de triage depuis Claimroom. Ne jamais inventer de champ et recopier l’extrait exact entendu pour chaque fait candidat."
+  },
+  "messages": [
+    {
+      "type": "request-start",
+      "content": "",
+      "blocking": false
+    }
+  ],
+  "server": {
+    "url": "https://claimroom-demo-api.vercel.app/v1/voice/vapi/next-intake-step",
+    "timeoutSeconds": 20,
+    "credentialId": "fef75386-6421-471a-9d52-c146028babd6",
+    "staticIpAddressesEnabled": false
+  },
+  "variableExtractionPlan": {
+    "schema": {
+      "type": "object",
+      "required": [],
+      "properties": {}
+    }
+  }
+}

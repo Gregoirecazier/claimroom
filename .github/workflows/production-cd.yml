@@ -1,0 +1,317 @@
+name: Production CD
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: Redeploy every component (also use after changing production secrets)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+# A second merge waits for the current migration/deploy/smoke sequence. Never
+# cancel a run after its database migration has started.
+concurrency:
+  group: claimroom-production-release
+  cancel-in-progress: false
+
+jobs:
+  authorize-deployment:
+    name: Check commit author for production release
+    if: vars.ENABLE_PRODUCTION_DEPLOYMENTS == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.author.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the configured deployment author
+        id: author
+        shell: bash
+        env:
+          AUTHORIZED_DEPLOY_AUTHOR_EMAIL: ${{ secrets.AUTHORIZED_DEPLOY_AUTHOR_EMAIL }}
+        run: |
+          author_email="$(git show -s --format=%ae "$GITHUB_SHA")"
+          if [[ -n "$AUTHORIZED_DEPLOY_AUTHOR_EMAIL" && "$author_email" == "$AUTHORIZED_DEPLOY_AUTHOR_EMAIL" ]]; then
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+            echo "Production release skipped: the commit author is not authorized or the author setting is missing." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  plan:
+    name: Select changed production components
+    needs: authorize-deployment
+    if: needs.authorize-deployment.outputs.allowed == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      vapi: ${{ steps.changes.outputs.vapi }}
+      migrate: ${{ steps.changes.outputs.migrate }}
+      bridge: ${{ steps.changes.outputs.bridge }}
+      api: ${{ steps.changes.outputs.api }}
+      web: ${{ steps.changes.outputs.web }}
+      any: ${{ steps.changes.outputs.any }}
+      version: ${{ steps.prompt.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compare with the last smoke-verified production release
+        id: changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE_ALL: ${{ inputs.force_all || false }}
+        run: python3 .github/scripts/plan_production.py
+      - uses: actions/setup-python@v5
+        if: steps.changes.outputs.api == 'true'
+        with:
+          python-version: "3.12"
+      - name: Install prompt metadata reader
+        if: steps.changes.outputs.api == 'true'
+        run: python -m pip install PyYAML==6.0.3
+      - name: Read published prompt version without contacting Vapi
+        if: steps.changes.outputs.api == 'true'
+        id: prompt
+        run: |
+          python - <<'PYTHON'
+          import os
+          import sys
+          sys.path.insert(0, ".github/scripts")
+          from deploy_vapi_prompts import load_prompts
+          prompt, _ = load_prompts()
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"version={prompt['version']}\n")
+          PYTHON
+
+  verify:
+    name: Run CI gates
+    needs: authorize-deployment
+    if: needs.authorize-deployment.outputs.allowed == 'true'
+    uses: ./.github/workflows/ci.yml
+
+  deploy-vapi-prompts:
+    name: Synchronize published voice prompt with Vapi
+    needs: [verify, plan, preflight]
+    if: needs.plan.outputs.vapi == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.sync.outputs.version }}
+    env:
+      VAPI_PRIVATE_API_KEY: ${{ secrets.VAPI_PRIVATE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: apps/api/uv.lock
+      - name: Install locked API dependencies
+        run: uv sync --locked
+        working-directory: apps/api
+      - name: Apply and verify published prompt
+        id: sync
+        run: uv run --locked python ../../.github/scripts/deploy_vapi_prompts.py
+        working-directory: apps/api
+      - name: Apply and verify versioned tool and closing
+        run: uv run --locked python ../../.github/scripts/sync_vapi_voice.py
+        working-directory: apps/api
+
+  preflight:
+    name: Check selected production settings
+    needs: [verify, plan]
+    if: needs.plan.outputs.any == 'true'
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_VAPI: ${{ needs.plan.outputs.vapi }}
+      DEPLOY_MIGRATE: ${{ needs.plan.outputs.migrate }}
+      DEPLOY_BRIDGE: ${{ needs.plan.outputs.bridge }}
+      DEPLOY_API: ${{ needs.plan.outputs.api }}
+      DEPLOY_WEB: ${{ needs.plan.outputs.web }}
+      VAPI_PRIVATE_API_KEY: ${{ secrets.VAPI_PRIVATE_API_KEY }}
+      MIGRATION_DATABASE_URL: ${{ secrets.MIGRATION_DATABASE_URL }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_API_PROJECT_ID: ${{ secrets.VERCEL_API_PROJECT_ID }}
+      VERCEL_WEB_PROJECT_ID: ${{ secrets.VERCEL_WEB_PROJECT_ID }}
+      VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+      VERCEL_WEB_TOKEN: ${{ secrets.VERCEL_WEB_TOKEN }}
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      API_PRODUCTION_URL: ${{ vars.API_PRODUCTION_URL || 'https://claimroom-demo-api.vercel.app' }}
+      WEB_PRODUCTION_URL: ${{ vars.WEB_PRODUCTION_URL || 'https://claimroom-demo-web.vercel.app' }}
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+      DEMO_HANDLER_EMAIL: ${{ vars.DEMO_HANDLER_EMAIL }}
+      DEMO_HANDLER_PASSWORD: ${{ secrets.DEMO_HANDLER_PASSWORD }}
+    steps:
+      - name: Require production settings before touching the database
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(API_PRODUCTION_URL WEB_PRODUCTION_URL SUPABASE_URL
+            SUPABASE_PUBLISHABLE_KEY DEMO_HANDLER_EMAIL DEMO_HANDLER_PASSWORD)
+          if [[ "$DEPLOY_VAPI" == true ]]; then required+=(VAPI_PRIVATE_API_KEY); fi
+          if [[ "$DEPLOY_MIGRATE" == true ]]; then required+=(MIGRATION_DATABASE_URL); fi
+          if [[ "$DEPLOY_BRIDGE" == true ]]; then required+=(RAILWAY_TOKEN); fi
+          if [[ "$DEPLOY_API" == true ]]; then required+=(VERCEL_ORG_ID VERCEL_API_PROJECT_ID VERCEL_API_TOKEN); fi
+          if [[ "$DEPLOY_WEB" == true ]]; then required+=(VERCEL_ORG_ID VERCEL_WEB_PROJECT_ID VERCEL_WEB_TOKEN); fi
+          for name in "${required[@]}"; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Required GitHub Actions secret or variable is missing: $name" >&2
+              exit 1
+            fi
+          done
+          if [[ "$DEPLOY_MIGRATE" == true ]]; then
+            case "$MIGRATION_DATABASE_URL" in
+              postgresql://*|postgres://*) ;;
+              *) echo "MIGRATION_DATABASE_URL must be a PostgreSQL URI." >&2; exit 1 ;;
+            esac
+          fi
+          case "$API_PRODUCTION_URL" in
+            https://*) ;;
+            *) echo "API_PRODUCTION_URL must be an HTTPS origin." >&2; exit 1 ;;
+          esac
+          case "$WEB_PRODUCTION_URL" in
+            https://*) ;;
+            *) echo "WEB_PRODUCTION_URL must be an HTTPS origin." >&2; exit 1 ;;
+          esac
+
+  migrate:
+    name: Apply Supabase migrations
+    needs: [verify, plan, preflight, deploy-vapi-prompts]
+    if: >-
+      ${{ !cancelled() && !failure() && needs.verify.result == 'success' &&
+          needs.preflight.result == 'success' && needs.plan.outputs.migrate == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      MIGRATION_DATABASE_URL: ${{ secrets.MIGRATION_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: apps/api/uv.lock
+      - name: Install locked API dependencies
+        run: uv sync --locked
+        working-directory: apps/api
+      - name: Apply Alembic revisions to Supabase
+        run: uv run --locked alembic upgrade head
+        working-directory: apps/api
+
+  deploy-voice-bridge:
+    name: Deploy S08 voice bridge to Railway
+    needs: [verify, plan, preflight, migrate]
+    if: >-
+      ${{ !cancelled() && !failure() && needs.verify.result == 'success' &&
+          needs.preflight.result == 'success' && needs.plan.outputs.bridge == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      RAILWAY_PROJECT_ID: d6314274-6494-413b-a262-3ff1a4bf9476
+      RAILWAY_ENVIRONMENT_ID: 357fb1f7-a224-48e1-9e52-272db5823d43
+      RAILWAY_SERVICE_ID: 47763c31-e3ec-4e4c-8727-746d5a959b64
+      VOICE_BRIDGE_PRODUCTION_URL: https://api-production-431d.up.railway.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install pinned Railway CLI
+        run: npm install --global @railway/cli@5.59.0
+      - name: Deploy and verify voice bridge
+        shell: bash
+        run: bash .github/scripts/deploy_railway.sh
+
+  deploy-api:
+    name: Deploy API to Vercel
+    needs: [verify, plan, preflight, migrate, deploy-voice-bridge, deploy-vapi-prompts]
+    if: >-
+      ${{ !cancelled() && !failure() && needs.verify.result == 'success' &&
+          needs.preflight.result == 'success' && needs.plan.outputs.api == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_API_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+      VERCEL_PUBLIC_URL: ${{ vars.API_PRODUCTION_URL || 'https://claimroom-demo-api.vercel.app' }}
+      VERCEL_READINESS_KIND: api
+      VOICE_ASSISTANT_VERSION: ${{ needs.plan.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install pinned Vercel CLI
+        run: npm install --global vercel@60.0.1
+      - name: Deploy API project to production
+        id: deploy
+        shell: bash
+        run: |
+          # Vercel project Root Directory is apps/api, so upload the repository root.
+          # VERCEL_ORG_ID and VERCEL_PROJECT_ID select the existing project.
+          # Avoid `vercel link`, which requests a user profile unavailable to
+          # project-scoped deployment tokens.
+          bash .github/scripts/deploy_vercel.sh
+
+  deploy-web:
+    name: Deploy web app to Vercel
+    needs: [verify, plan, preflight, deploy-api]
+    if: >-
+      ${{ !cancelled() && !failure() && needs.verify.result == 'success' &&
+          needs.preflight.result == 'success' && needs.plan.outputs.web == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_WEB_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_WEB_TOKEN }}
+      VERCEL_PUBLIC_URL: ${{ vars.WEB_PRODUCTION_URL || 'https://claimroom-demo-web.vercel.app' }}
+      VERCEL_READINESS_KIND: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install pinned Vercel CLI
+        run: npm install --global vercel@60.0.1
+      - name: Deploy web project to production
+        id: deploy
+        shell: bash
+        run: |
+          # Vercel project Root Directory is apps/web, so upload the repository root.
+          # VERCEL_ORG_ID and VERCEL_PROJECT_ID select the existing project.
+          bash .github/scripts/deploy_vercel.sh
+
+  smoke:
+    name: Exercise production handler flow
+    # Keep this name stable: the planner uses its successful result as a checkpoint.
+    needs: [verify, plan, preflight, deploy-vapi-prompts, migrate, deploy-voice-bridge, deploy-api, deploy-web]
+    if: >-
+      ${{ !cancelled() && !failure() && needs.verify.result == 'success' &&
+          needs.preflight.result == 'success' && needs.plan.outputs.any == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      API_PRODUCTION_URL: ${{ vars.API_PRODUCTION_URL || 'https://claimroom-demo-api.vercel.app' }}
+      WEB_PRODUCTION_URL: ${{ vars.WEB_PRODUCTION_URL || 'https://claimroom-demo-web.vercel.app' }}
+      VOICE_BRIDGE_PRODUCTION_URL: https://api-production-431d.up.railway.app
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+      DEMO_HANDLER_EMAIL: ${{ vars.DEMO_HANDLER_EMAIL }}
+      DEMO_HANDLER_PASSWORD: ${{ secrets.DEMO_HANDLER_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sign in and exercise synthetic claim workflow
+        run: python .github/scripts/production_smoke.py

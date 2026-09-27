@@ -1,0 +1,23 @@
+[llm.aliases]
+default-general = "gpt-6-luna"
+
+[llm.choice_defaults]
+default_temperature = 0
+for_text = "@default-general"
+for_object = "@default-general"
+
+[img_gen]
+default_quality = "medium"
+choice_default = "$gen-image"
+
+[img_gen.aliases]
+default-general = "gpt-image-2"
+
+[img_gen.presets]
+gen-image = { model = "@default-general", quality = "medium" }
+
+[extract]
+choice_default = "pypdfium2-extract-pdf"
+
+[search]
+choice_default = "linkup-standard"

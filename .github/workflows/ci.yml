@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Web build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+        working-directory: apps/web
+      - run: npm test
+        working-directory: apps/web
+      - run: npm run build
+        working-directory: apps/web
+      - name: Check selective production deployment planning
+        run: python3 .github/scripts/test_plan_production.py
+      - name: Check production deployment scripts offline
+        run: python3 .github/scripts/test_deploy_scripts.py
+
+  api:
+    name: API tests and migrations
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: testonly
+          POSTGRES_DB: claims_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d claims_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: apps/api/uv.lock
+      - run: uv sync --locked --dev
+        working-directory: apps/api
+      - name: Check versioned Vapi voice sync offline
+        run: uv run --locked python ../../.github/scripts/test_sync_vapi_voice.py
+        working-directory: apps/api
+      - run: uv run --locked pytest
+        env:
+          TEST_MIGRATION_DATABASE_URL: postgresql://postgres:testonly@127.0.0.1:5432/claims_test?sslmode=disable
+          APP_ENV: development
+          DATABASE_ALLOW_INSECURE_LOCAL: "true"
+        working-directory: apps/api
+      - name: S16 offline evaluation inventory and deterministic probes
+        run: uv run --locked python -m evals.matrix_runner --output-dir /tmp/s16-offline-report
+        working-directory: apps/api
+      - name: Render Alembic migration chain without a database
+        env:
+          APP_ENV: development
+          DATABASE_ALLOW_INSECURE_LOCAL: "true"
+          MIGRATION_DATABASE_URL: postgresql://localhost/claims_test?sslmode=disable
+        run: uv run --locked alembic upgrade --sql head > /tmp/claim-migrations.sql
+        working-directory: apps/api

@@ -1,0 +1,13 @@
+# S14 — Lookup assureur et correspondant après identification
+
+**Objectif.** Brancher la base synthétique FR/UK existante au workflow, seulement après sélection d'une plaque du véhicule effectivement impliqué, corroborée par source ou validation humaine explicite.
+
+**Entrée.** `{case_id, plate_candidate, country, incident_date, supporting_source_refs, identification_status}`. Refuser un lookup présenté comme positif si la plaque est partielle, appartient uniquement à la voiture assurée ou à la voiture bleue non impliquée. Une validation humaine d'association doit porter auteur/date/raison et ne transforme pas une lecture ambiguë en fait vidéo. Date = date de l'accident, jamais date du jour.
+
+**Traitement.** Appeler `mock_insurance.insurance_lookup` (normalisation format seulement, sans deviner O/0), puis `correspondent_lookup(insurer_id, 'FR', incident_date)` si l'assureur UK est couvert et qu'un correspondant est pertinent. Persister chaque `ProviderResult` avec `mode=mock`, `source_version=mock-insurance-v2`, query canonique, hash et source UUID. Une même query/version n'incrémente pas `content_revision` à chaque analyse. Un changement de plaque, date, source d'association ou version de fixture invalide le résultat applicable et nécessite un nouveau lookup. Garder les anciens résultats pour l'audit, mais désigner clairement le résultat courant.
+
+**Écart de contrat à résoudre.** Les fixtures initiales `complete` injectent `correspondent_lookup.query={insurer,insurer_country,country}` à la création ; la base PR 20 utilise `{insurer_id,accident_country,incident_date}`. Adapter `correspondent_query_matches`, `validate_output` et gate 2 au contrat versionné choisi ; ne pas faire passer un résultat en changeant seulement son libellé. La couverture active seule ne prouve ni identité du conducteur ni responsabilité. `AB12 CDE` est la référence humaine de la BMW G1, mais ne devient une plaque extraite par l'application qu'après observation sourcée et corroboration ; `FR-482-KL` est désormais dans les fixtures v2 et désigne le véhicule assuré.
+
+**Critères d'acceptation.** `AB12 CDE` au 25/09/2026, si associé au bon véhicule, retourne Northbridge/Hexagone fictifs ; plaque absente, expirée, future, partielle ou sans correspondant retournent le statut exact et aucun destinataire inventé. `XY34 ZTR` visible mais non impliquée ne déclenche pas un match de tiers. Tests N01–N06 + reprise après correction de plaque/date + absence de doublon de résultat.
+
+**Points d'appui.** `mock_insurance.py`, `analysis.py`, `provider_results`, `apps/api/fixtures/mock-insurance/README.md`.

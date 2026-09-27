@@ -1,0 +1,11 @@
+# S05 — Unifier les amendements du dossier et du package
+
+**Déjà livré sur `main`.** `PATCH /v1/cases/{id}/drafts/current` crée des brouillons immuables pour destinataire, montant/devise, corps et `attachment_ids`. Digest canonique, filiation, `state_version`, `content_revision`, audit et révocation d'approbation sont côté API. Un PATCH sans changement renvoie le même brouillon ; une version périmée reçoit `409`. `ReviewPanel.tsx` expose ces champs. L'intake peut aussi être corrigé depuis `G1App.tsx`.
+
+**Écart à fermer.** Le compte rendu, les postes de réparation et le devis à venir (S03/S04) ne font pas encore partie d'un package unique. Un gestionnaire voit deux éditions séparées, sans aperçu de ce qui a changé entre versions ni aide pour résoudre un `409`. Le commentaire de la PR 13 n'a pas d'équivalent structuré dans le package actuel.
+
+**Contrat à ajouter.** Définir précisément quels champs de S03/S04 figurent dans le message transmis, le digest et les pièces ; intégrer leur édition au même modèle de version ou à des révisions de contenu qui rendent le brouillon obsolète. Tout changement matériel (récit transmis, postes, total, devis, vidéo, destinataire, commentaire transmis) révoque l'approbation en transaction et crée un audit indiquant auteur/champs, sans dupliquer l'intégralité du texte. Un simple champ de note interne, absent du package, ne change pas `content_revision`. Garder la validation des IDs de pièces du même dossier. Ajouter un aperçu des différences avant sauvegarde et une reprise explicite après `409` (recharger, comparer, ressaisir) sans écrasement silencieux.
+
+**Critères d'acceptation.** Changer 10 €, un destinataire ou une pièce produit une nouvelle version/digest ; requête identique ne le fait pas. Deux onglets modifient la même version : le second reçoit `409` et voit la version courante. Après rechargement, auteur et date de l'amendement restent visibles. Une modification de récit du dossier invalide l'analyse ancienne, puis le package doit être reconstruit/revu avant approbation. Tests API d'atomicité et UI de conflit/diff.
+
+**Points d'appui.** `review_models.py`, `review_service.py`, `postgres_cases.py`, `ReviewPanel.tsx`, `G1App.tsx`. Préserver les garanties déjà testées dans `test_review_actions.py`.

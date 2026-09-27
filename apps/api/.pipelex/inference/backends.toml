@@ -1,0 +1,6 @@
+# Project-local Pipelex configuration shared by local API runs and the Vercel API root.
+# Only the server-side OpenAI key is read from the environment; no credentials are stored here.
+[openai]
+display_name = "OpenAI"
+enabled = true
+api_key = "${OPENAI_API_KEY}"

@@ -1,0 +1,11 @@
+schema_version: 1
+version: v1
+kind: synthetic_image_generation
+fixture: g2
+view: ensemble
+source_file: apps/api/claim_api/fixture_media/g2/prompt-ensemble.md
+prompt: |
+  Use case: photorealistic-natural. Asset: ONE portrait 3:4 ordinary smartphone photograph for a clearly fictional insurance hackathon demo.
+  Input image 1 is the authoritative AFTER-IMPACT frame of G2; input image 2 is the BEFORE-IMPACT identity reference only. Create a new ground-level front-LEFT three-quarter photograph of the SAME SILVER RENAULT shown in those references, photographed at standing height from about 3 metres away shortly after the vehicles have been separated. Show the whole Renault with its damaged driver-side front corner prominently nearest the camera. LEFT means the Renault's own left when facing forward, not the viewer's left. Preserve the actual reference vehicle's tall rounded cabin, roof antenna, Renault diamond, distinctive large triangular headlights, grey bumper strips, silver wheels, paint and proportions; do not replace it with a different generation or a modern Renault.
+  Damage must match the AFTER frame: buckled left front fender beside and above the front-left wheel; left edge of the bonnet raised and misaligned with a dark uneven gap next to the left headlight; left headlight housing displaced but most of its lens still present; localized scuffs/deformation at that bumper corner. The middle and opposite side of the front bumper, central grille and opposite headlight remain substantially intact. No additional impacts, missing wheels, fires, fluids or shattered windshield.
+  French white FRONT plate EXACTLY "GH-271-RM", clearly readable, natural black registration characters, blue EU/F band. Same dry grey asphalt and simple white road markings, natural daytime light. Car stationary, one seated adult driver in blue clothing visible through windshield if this angle allows, matching the video; no extra people or bystanders. Keep other vehicles outside the photo so the Renault damage is unobstructed. Authentic handheld insurance-upload photo, realistic minor texture, no dramatic cinematic lighting or forensic annotations. Single full-frame photograph, no collage, no inset, no labels, no video controls. This is a synthetic reconstruction, not a real insurance claim.

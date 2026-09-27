@@ -1,0 +1,952 @@
+{
+  "dataset_id": "s16-matrix",
+  "version": 1,
+  "cases": [
+    {
+      "eval_id": "V01",
+      "matrix": "agents",
+      "scenario_id": "v01",
+      "scene_group_id": "scenario-v01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V01"
+        }
+      ],
+      "expected_refs": [
+        "V01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "V02",
+      "matrix": "agents",
+      "scenario_id": "v02",
+      "scene_group_id": "scenario-v02",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V02"
+        }
+      ],
+      "expected_refs": [
+        "V02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "V03",
+      "matrix": "agents",
+      "scenario_id": "v03",
+      "scene_group_id": "scenario-v03",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V03"
+        }
+      ],
+      "expected_refs": [
+        "V03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "V04",
+      "matrix": "agents",
+      "scenario_id": "v04",
+      "scene_group_id": "scenario-v04",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V04"
+        }
+      ],
+      "expected_refs": [
+        "V04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "V05",
+      "matrix": "agents",
+      "scenario_id": "v05",
+      "scene_group_id": "scenario-v05",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V05"
+        }
+      ],
+      "expected_refs": [
+        "V05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "V06",
+      "matrix": "agents",
+      "scenario_id": "v06",
+      "scene_group_id": "scenario-v06",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "V06"
+        }
+      ],
+      "expected_refs": [
+        "V06"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "S01",
+      "matrix": "agents",
+      "scenario_id": "s01",
+      "scene_group_id": "scenario-s01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "S01"
+        }
+      ],
+      "expected_refs": [
+        "S01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "S02",
+      "matrix": "agents",
+      "scenario_id": "s02",
+      "scene_group_id": "scenario-s02",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "S02"
+        }
+      ],
+      "expected_refs": [
+        "S02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "S03",
+      "matrix": "agents",
+      "scenario_id": "s03",
+      "scene_group_id": "scenario-s03",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "S03"
+        }
+      ],
+      "expected_refs": [
+        "S03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I01",
+      "matrix": "agents",
+      "scenario_id": "i01",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I01"
+        },
+        {
+          "kind": "media",
+          "id": "g1-video"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-wide"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-detail"
+        }
+      ],
+      "expected_refs": [
+        "I01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I02",
+      "matrix": "agents",
+      "scenario_id": "i02",
+      "scene_group_id": "g2",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I02"
+        },
+        {
+          "kind": "media",
+          "id": "g2-video"
+        }
+      ],
+      "expected_refs": [
+        "I02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I03",
+      "matrix": "agents",
+      "scenario_id": "i03",
+      "scene_group_id": "g2",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I03"
+        },
+        {
+          "kind": "media",
+          "id": "g2-video"
+        }
+      ],
+      "expected_refs": [
+        "I03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I04",
+      "matrix": "agents",
+      "scenario_id": "i04",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I04"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-wide"
+        }
+      ],
+      "expected_refs": [
+        "I04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I05",
+      "matrix": "agents",
+      "scenario_id": "i05",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I05"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-wide"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-detail"
+        }
+      ],
+      "expected_refs": [
+        "I05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "I06",
+      "matrix": "agents",
+      "scenario_id": "i06",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "I06"
+        },
+        {
+          "kind": "media",
+          "id": "g1-video"
+        }
+      ],
+      "expected_refs": [
+        "I06"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N01",
+      "matrix": "agents",
+      "scenario_id": "n01",
+      "scene_group_id": "scenario-n01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N01"
+        }
+      ],
+      "expected_refs": [
+        "N01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N02",
+      "matrix": "agents",
+      "scenario_id": "n02",
+      "scene_group_id": "scenario-n02",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N02"
+        }
+      ],
+      "expected_refs": [
+        "N02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N03",
+      "matrix": "agents",
+      "scenario_id": "n03",
+      "scene_group_id": "scenario-n03",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N03"
+        }
+      ],
+      "expected_refs": [
+        "N03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N04",
+      "matrix": "agents",
+      "scenario_id": "n04",
+      "scene_group_id": "scenario-n04",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N04"
+        }
+      ],
+      "expected_refs": [
+        "N04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N05",
+      "matrix": "agents",
+      "scenario_id": "n05",
+      "scene_group_id": "g2",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N05"
+        },
+        {
+          "kind": "media",
+          "id": "g2-video"
+        }
+      ],
+      "expected_refs": [
+        "N05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "N06",
+      "matrix": "agents",
+      "scenario_id": "n06",
+      "scene_group_id": "scenario-n06",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "N06"
+        }
+      ],
+      "expected_refs": [
+        "N06"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "L01",
+      "matrix": "agents",
+      "scenario_id": "l01",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "L01"
+        },
+        {
+          "kind": "media",
+          "id": "g1-video"
+        }
+      ],
+      "expected_refs": [
+        "L01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "L02",
+      "matrix": "agents",
+      "scenario_id": "l02",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "L02"
+        },
+        {
+          "kind": "media",
+          "id": "g1-after-impact-missing"
+        }
+      ],
+      "expected_refs": [
+        "L02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "L03",
+      "matrix": "agents",
+      "scenario_id": "l03",
+      "scene_group_id": "g3",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "L03"
+        },
+        {
+          "kind": "media",
+          "id": "g3-video"
+        }
+      ],
+      "expected_refs": [
+        "L03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "C01",
+      "matrix": "agents",
+      "scenario_id": "c01",
+      "scene_group_id": "scenario-c01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "C01"
+        }
+      ],
+      "expected_refs": [
+        "C01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "C02",
+      "matrix": "agents",
+      "scenario_id": "c02",
+      "scene_group_id": "g1",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "C02"
+        },
+        {
+          "kind": "media",
+          "id": "g1-video"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-wide"
+        },
+        {
+          "kind": "media",
+          "id": "g1-photo-detail"
+        }
+      ],
+      "expected_refs": [
+        "C02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "S04",
+      "matrix": "ux",
+      "scenario_id": "s04",
+      "scene_group_id": "scenario-s04",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "S04"
+        }
+      ],
+      "expected_refs": [
+        "S04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "S05",
+      "matrix": "ux",
+      "scenario_id": "s05",
+      "scene_group_id": "scenario-s05",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "S05"
+        }
+      ],
+      "expected_refs": [
+        "S05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U01",
+      "matrix": "ux",
+      "scenario_id": "u01",
+      "scene_group_id": "scenario-u01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U01"
+        }
+      ],
+      "expected_refs": [
+        "U01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U02",
+      "matrix": "ux",
+      "scenario_id": "u02",
+      "scene_group_id": "scenario-u02",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U02"
+        }
+      ],
+      "expected_refs": [
+        "U02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U03",
+      "matrix": "ux",
+      "scenario_id": "u03",
+      "scene_group_id": "scenario-u03",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U03"
+        }
+      ],
+      "expected_refs": [
+        "U03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U04",
+      "matrix": "ux",
+      "scenario_id": "u04",
+      "scene_group_id": "scenario-u04",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U04"
+        }
+      ],
+      "expected_refs": [
+        "U04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U05",
+      "matrix": "ux",
+      "scenario_id": "u05",
+      "scene_group_id": "scenario-u05",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U05"
+        }
+      ],
+      "expected_refs": [
+        "U05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U06",
+      "matrix": "ux",
+      "scenario_id": "u06",
+      "scene_group_id": "scenario-u06",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U06"
+        }
+      ],
+      "expected_refs": [
+        "U06"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "U07",
+      "matrix": "ux",
+      "scenario_id": "u07",
+      "scene_group_id": "scenario-u07",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "U07"
+        }
+      ],
+      "expected_refs": [
+        "U07"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A01",
+      "matrix": "ux",
+      "scenario_id": "a01",
+      "scene_group_id": "scenario-a01",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A01"
+        }
+      ],
+      "expected_refs": [
+        "A01"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A02",
+      "matrix": "ux",
+      "scenario_id": "a02",
+      "scene_group_id": "scenario-a02",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A02"
+        }
+      ],
+      "expected_refs": [
+        "A02"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A03",
+      "matrix": "ux",
+      "scenario_id": "a03",
+      "scene_group_id": "scenario-a03",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A03"
+        }
+      ],
+      "expected_refs": [
+        "A03"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A04",
+      "matrix": "ux",
+      "scenario_id": "a04",
+      "scene_group_id": "scenario-a04",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A04"
+        }
+      ],
+      "expected_refs": [
+        "A04"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A05",
+      "matrix": "ux",
+      "scenario_id": "a05",
+      "scene_group_id": "scenario-a05",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A05"
+        }
+      ],
+      "expected_refs": [
+        "A05"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A06",
+      "matrix": "ux",
+      "scenario_id": "a06",
+      "scene_group_id": "scenario-a06",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A06"
+        }
+      ],
+      "expected_refs": [
+        "A06"
+      ],
+      "status": "planned"
+    },
+    {
+      "eval_id": "A07",
+      "matrix": "ux",
+      "scenario_id": "a07",
+      "scene_group_id": "scenario-a07",
+      "fixture_version": "matrix-v1",
+      "app_commit": null,
+      "pipeline_fingerprint": null,
+      "model_version": null,
+      "prompt_version": null,
+      "input_refs": [
+        {
+          "kind": "scenario",
+          "id": "A07"
+        }
+      ],
+      "expected_refs": [
+        "A07"
+      ],
+      "status": "planned"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "scenario": "G3",
+  "synthetic": true,
+  "application_status": "repository_assets_only_not_automatically_seeded",
+  "source_video": {
+    "file": "video-g3.mp4",
+    "original_filename": "98ea44f9-0ac7-46b8-8a08-79cf32cbde1a.mp4",
+    "sha256": "c528dea1f2fa78f2910325d46e67b090e75bca3ef7daaed422d203ccbba8d0af",
+    "size_bytes": 4118078,
+    "mime_type": "video/mp4",
+    "duration_seconds_rounded": 5.042,
+    "dimensions_px": [
+      1280,
+      720
+    ],
+    "transcoded": false
+  },
+  "photos": [
+    {
+      "file": "photo-toyota-ensemble.png",
+      "sha256": "7f2b35c7916b2dbe8b122afb629bae8af319ebf1651f695208b637d196fbea08",
+      "size_bytes": 2462178,
+      "mime_type": "image/png",
+      "dimensions_px": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "generation_tool": "image_gen",
+      "subject": {
+        "vehicle": "toyota",
+        "plate_reference": "LM21 RZT",
+        "role_in_scenario": "third_party"
+      },
+      "prompt_file": "prompt-ensemble.md",
+      "source_video": "video-g3.mp4",
+      "generated_photo_reference": null,
+      "inspected_video_frame_times_seconds": [
+        0.0,
+        3.0,
+        4.791666666666667
+      ]
+    },
+    {
+      "file": "photo-toyota-detail.png",
+      "sha256": "414e45a7cab7faa766562b7eacbd8979078d650ed7253285d157d1c3b12da668",
+      "size_bytes": 2420910,
+      "mime_type": "image/png",
+      "dimensions_px": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "generation_tool": "image_gen",
+      "subject": {
+        "vehicle": "toyota",
+        "plate_reference": "LM21 RZT",
+        "role_in_scenario": "third_party"
+      },
+      "prompt_file": "prompt-detail.md",
+      "source_video": "video-g3.mp4",
+      "generated_photo_reference": "photo-toyota-ensemble.png",
+      "inspected_video_frame_times_seconds": [
+        0.0,
+        3.0,
+        4.791666666666667
+      ]
+    }
+  ],
+  "note": "Synthetic reconstructed views generated from video frames, not independent observations. Partly occluded surfaces are reconstructed. Prompts and this reference metadata are for maintainers and evaluators, not input to the evaluated agent."
+}

@@ -1,0 +1,19 @@
+schema_version: 1
+version: voice-questions-v1
+required_order:
+  - narrative
+  - location
+  - incident_time
+  - third_party_involved
+  - danger_status
+  - injury_severity
+conditional:
+  third_party_presence: third_party_involved == yes
+questions:
+  narrative: Pouvez-vous raconter brièvement ce qui s'est passé ?
+  location: Où l'accident s'est-il produit ?
+  incident_time: À quelle heure environ l'accident s'est-il produit ?
+  third_party_involved: Un autre véhicule était-il impliqué ?
+  third_party_presence: L'autre conducteur est-il resté sur place ?
+  danger_status: Êtes-vous en sécurité actuellement ?
+  injury_severity: Y a-t-il des blessés et, si oui, est-ce grave ?

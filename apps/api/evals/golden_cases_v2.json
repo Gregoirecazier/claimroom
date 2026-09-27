@@ -1,0 +1,54 @@
+{
+  "dataset_id": "claims-analysis-golden",
+  "version": 2,
+  "cases": [
+    {
+      "id": "complete-supported-claim",
+      "scenario_id": "complete",
+      "expected_route": "subrogation",
+      "expected_gates": ["passed", "passed", "passed"],
+      "recipient_required": true,
+      "uncertainty_required": false,
+      "liability_claim_forbidden": true
+    },
+    {
+      "id": "ambiguous-plate-blocked",
+      "scenario_id": "ambiguous",
+      "expected_route": "insufficient_information",
+      "expected_gates": ["passed", "blocked", "needs_review"],
+      "recipient_required": false,
+      "uncertainty_required": false,
+      "liability_claim_forbidden": true
+    },
+    {
+      "id": "missing-cctv-remains-optional",
+      "scenario_id": "complete",
+      "expected_route": "subrogation",
+      "expected_gates": ["passed", "passed", "passed"],
+      "recipient_required": true,
+      "uncertainty_required": false,
+      "liability_claim_forbidden": true,
+      "missing_cctv": true
+    },
+    {
+      "id": "contradictory-coverage-date-blocked",
+      "scenario_id": "complete",
+      "expected_route": "subrogation",
+      "expected_gates": ["passed", "blocked", "passed"],
+      "recipient_required": true,
+      "uncertainty_required": false,
+      "liability_claim_forbidden": true,
+      "contradictory_coverage_date": true
+    },
+    {
+      "id": "unsupported-liability-stays-reported",
+      "scenario_id": "complete",
+      "expected_route": "subrogation",
+      "expected_gates": ["passed", "passed", "passed"],
+      "recipient_required": true,
+      "uncertainty_required": true,
+      "liability_claim_forbidden": true,
+      "unsupported_liability_narrative": true
+    }
+  ]
+}

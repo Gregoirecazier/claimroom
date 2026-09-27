@@ -1,0 +1,12 @@
+schema_version: 1
+version: v1
+kind: synthetic_image_generation
+fixture: g3
+view: ensemble
+source_file: apps/api/claim_api/fixture_media/g3/prompt-ensemble.md
+prompt: |
+  Use case: photorealistic-natural. Make ONE portrait 3:4 phone photograph of the red Toyota alone after the accident, with a NEW viewpoint on its damaged PASSENGER SIDE.
+  Image 1: authoritative after-impact video frame. Image 2: before-impact vehicle identity. Preserve that exact older dark brick-red Toyota Corolla, its beige interior, wheels, intact front headlights, bonnet and grille.
+  CRITICAL CAMERA AND SIDE: Move the camera to the OTHER side of the Toyota compared with the video's usual visible driver side. Stand in front of the Toyota's own RIGHT FRONT WHEEL, looking diagonally back along its RIGHT PASSENGER SIDE. In the generated composition the Toyota's NOSE and front registration plate must be on the RIGHT side of the image; its REAR must extend towards the LEFT side of the image. The long visible damaged flank runs LEFTWARD behind the closest front wheel. This side is the car's RIGHT, the side that the silver Citroen touches on the LEFT of the video frame. Do not photograph or damage the driver's door. Do not horizontally mirror text, badges or steering-wheel location.
+  Show the RIGHT FRONT PASSENGER DOOR ajar about 25 degrees and misaligned, with moderate creasing near its leading edge and center/lower panel, restrained pale scuffs consistent with silver paint transfer at the side contact. Preserve the modest video damage; the obscured part is a conservative fictional reconstruction. The opposite DRIVER'S DOOR is CLOSED and undamaged. Driver remains in the original LEFT-HAND-DRIVE seat on the FAR side of the cabin, not beside the open damaged door. No extra people. Roof, windscreen, bonnet, lamps, central grille and FRONT BUMPER remain intact as in the video. No detached panels, no frontal damage, no rear damage, no injuries.
+  Fit the whole Toyota, at normal standing camera height from 3 metres, on the same dry intersection asphalt with white markings. Silver Citroen outside the crop after separation. FRONT white plate reads EXACTLY "LM21 RZT" in normal readable black letters; NOT mirrored and not yellow. Plain natural daylight insurance upload photograph, no dramatic treatment, no collage, no text labels, no arrows. Prioritize correct PASSENGER-SIDE placement over any previous generated view.

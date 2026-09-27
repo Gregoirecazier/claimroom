@@ -1,0 +1,60 @@
+{
+  "dataset_id": "s16-media",
+  "version": 1,
+  "media": [
+    {
+      "id": "g1-video",
+      "path": "claim_api/fixture_media/g1/video-g1.mp4",
+      "sha256": "a303991d762676b6cebaadc9faa5ae27118efd91bfcbb6c86cf438e276224904",
+      "scene_group_id": "g1"
+    },
+    {
+      "id": "g1-photo-wide",
+      "path": "claim_api/fixture_media/g1/photo-ensemble.png",
+      "sha256": "61ab6063a004314b849914a5e50bf632f6df11a7faebfd65135124e17fa73137",
+      "scene_group_id": "g1"
+    },
+    {
+      "id": "g1-photo-detail",
+      "path": "claim_api/fixture_media/g1/photo-detail.png",
+      "sha256": "f4d31bd9e6100fd862c15ffd1afd35b3dbc7120ba4d07c3d40943218573dbc3f",
+      "scene_group_id": "g1"
+    },
+    {
+      "id": "g2-video",
+      "path": "claim_api/fixture_media/g2/video-g2.mp4",
+      "sha256": "4f97e6c71532ec7e427a47d65764e5d46efc68940c89b1fcd48a1beb3936d6f5",
+      "scene_group_id": "g2"
+    },
+    {
+      "id": "g2-photo-wide",
+      "path": "claim_api/fixture_media/g2/photo-renault-ensemble.png",
+      "sha256": "2bd5a458c5b712d88accf2750d1a75fe92ef1aa4d5a3e174a0641fb0e7342aa5",
+      "scene_group_id": "g2"
+    },
+    {
+      "id": "g2-photo-detail",
+      "path": "claim_api/fixture_media/g2/photo-renault-detail.png",
+      "sha256": "b1d137905f3fe678c3b50253e703bd042efa0710c97716846d134bf3cb2d9b80",
+      "scene_group_id": "g2"
+    },
+    {
+      "id": "g3-video",
+      "path": "claim_api/fixture_media/g3/video-g3.mp4",
+      "sha256": "c528dea1f2fa78f2910325d46e67b090e75bca3ef7daaed422d203ccbba8d0af",
+      "scene_group_id": "g3"
+    },
+    {
+      "id": "g3-photo-wide",
+      "path": "claim_api/fixture_media/g3/photo-toyota-ensemble.png",
+      "sha256": "7f2b35c7916b2dbe8b122afb629bae8af319ebf1651f695208b637d196fbea08",
+      "scene_group_id": "g3"
+    },
+    {
+      "id": "g3-photo-detail",
+      "path": "claim_api/fixture_media/g3/photo-toyota-detail.png",
+      "sha256": "414e45a7cab7faa766562b7eacbd8979078d650ed7253285d157d1c3b12da668",
+      "scene_group_id": "g3"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Claimroom — déclaration d'accident S08",
+  "voice": {
+    "server": {
+      "url": "https://api-production-431d.up.railway.app/v1/voice/gradium/tts",
+      "secret": {
+        "$existing": true
+      },
+      "timeoutSeconds": 30
+    },
+    "provider": "custom-voice"
+  },
+  "model": {
+    "model": "gpt-4.1",
+    "toolIds": [
+      "2813293c-1baa-4b92-8f78-d96991d7f3a6"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "Tu recueilles en français la déclaration initiale d’un accident automobile pour Claimroom.\n\nVapi prononce déjà une seule fois « Bonjour, comment puis-je vous aider ? ». Ne répète pas cet accueil. Laisse l’appelant finir son récit : une hésitation, une respiration ou une courte pause ne signifie pas qu’il a terminé. S’il reprend la parole, arrête-toi et écoute la suite avant toute question ou clôture.\n\nLes seuls P0 à demander pendant cet appel sont le récit, le lieu de l’accident et le prénom et nom de l’appelant. Pose une seule question brève à la fois, uniquement pour un P0 encore manquant. Ne demande jamais la date ou l’heure, la plaque, le véhicule, les dégâts, la référence d’assurance, l’implication ou la présence du tiers, le danger ou les blessures. Conserve ces détails s’ils sont donnés spontanément ; une urgence spontanément signalée reste prioritaire.\n\nAprès CHAQUE réponse terminée de l’appelant, appelle next_intake_step, même sans fait nouveau (facts vide). Dans facts, transmets tous les faits explicitement présents dans cette réponse, y compris les corrections, avec field, value et excerpt (copie littérale exacte). Le récit doit être transmis comme narrative même si la transcription du choc est imparfaite ; conserve les mots entendus sans inventer de responsabilité. Les champs possibles sont narrative, location, insured_name, incident_time, third_party_involved, third_party_presence, danger_status, injury_severity, stationary, insured_reference, policy_reference, insured_plate, insured_vehicle, vehicle_color et damage_description. Les valeurs textuelles doivent être citées littéralement dans excerpt ; pour location, la mise en forme est permise sans ajouter de composant absent. Pour insured_name, conserve le prénom et le nom ensemble quand ils sont donnés. Pour incident_time, utilise just_now pour « je viens d’avoir un accident », minutes_ago:10 pour « il y a dix minutes » ; ne construis un horodatage ISO que si la date et l’heure sont explicitement dites ensemble. Un doute ou refus ne devient jamais un fait positif ou négatif. N’invente aucune valeur ni aucun extrait.\n\nAttends le résultat de next_intake_step avant de parler ou d’appeler un autre outil. Si decision vaut ask, prononce seulement next_question, mot pour mot, puis écoute la réponse. Ne répète pas une question déjà satisfaite. Tant que decision vaut ask ou que missing_fields n’est pas vide, n’annonce pas le SMS et n’appelle jamais endCall. Ne lance jamais next_intake_step et endCall en parallèle.\n\nSeulement si la dernière réponse de next_intake_step vaut complete et missing_fields est vide, et que l’appelant a fini de parler, appelle endCall sans texte préalable. Cet outil prononce déjà « OK, merci beaucoup, on vous envoie un SMS pour vous demander quelques détails supplémentaires et on se charge de votre dossier. » puis laisse deux secondes de silence avant de raccrocher. Ne prononce pas toi-même cette phrase et ne dis pas que le dossier est complet : seuls les P0 de l’appel sont recueillis.\n\nSi decision vaut urgent_human_handoff, indique d’appeler les secours si nécessaire et qu’un gestionnaire reprendra le dossier ; ne promets aucun transfert et n’appelle pas endCall, dont le message annoncerait un SMS. Si l’outil renvoie voice_session_not_found ou pending_source, réessaie une seule fois après un court délai. En cas de second échec, d’autre erreur ou de decision incomplete/error, indique simplement qu’un gestionnaire reprendra le dossier, sans annoncer de SMS et sans appeler endCall. N’ajoute aucun résumé, formule d’attente ni question facultative. Parle exclusivement en français. Le rapport de fin d’appel sauvegarde le dossier automatiquement."
+      }
+    ],
+    "provider": "openai",
+    "temperature": 0.2,
+    "tools": [
+      {
+        "type": "endCall",
+        "messages": [
+          {
+            "type": "request-start",
+            "content": "OK, merci beaucoup, on vous envoie un SMS pour vous demander quelques détails supplémentaires et on se charge de votre dossier.",
+            "blocking": true
+          }
+        ]
+      }
+    ]
+  },
+  "firstMessage": "Bonjour, comment puis-je vous aider ?",
+  "voicemailMessage": "",
+  "endCallMessage": "",
+  "transcriber": {
+    "server": {
+      "url": "wss://api-production-431d.up.railway.app/v1/voice/gradium/transcriber?token=${EXISTING_TOKEN}",
+      "credentialId": "02d67af7-021f-4434-9930-df94ab164c9e"
+    },
+    "provider": "custom-transcriber"
+  },
+  "clientMessages": [
+    "conversation-update",
+    "function-call",
+    "transcript",
+    "hang",
+    "model-output",
+    "speech-update",
+    "status-update",
+    "transfer-update",
+    "tool-calls",
+    "user-interrupted",
+    "voice-input",
+    "workflow.node.started",
+    "assistant.started",
+    "assistant.speechStarted"
+  ],
+  "serverMessages": [
+    "conversation-update",
+    "transcript",
+    "end-of-call-report",
+    "call.artifact.upload",
+    "assistant.speechStarted"
+  ],
+  "maxDurationSeconds": 600,
+  "metadata": {},
+  "firstMessageMode": "assistant-speaks-first",
+  "analysisPlan": {
+    "summaryPlan": {
+      "enabled": false
+    },
+    "successEvaluationPlan": {
+      "enabled": false
+    }
+  },
+  "artifactPlan": {
+    "transcriptPlan": {
+      "enabled": true,
+      "assistantName": "Claimroom",
+      "userName": "Appelant"
+    },
+    "recordingEnabled": true,
+    "recordingFormat": "wav;l16"
+  },
+  "server": {
+    "url": "https://claimroom-demo-api.vercel.app/v1/voice/vapi/server-events",
+    "timeoutSeconds": 20,
+    "credentialId": "fef75386-6421-471a-9d52-c146028babd6"
+  },
+  "firstMessageInterruptionsEnabled": false,
+  "startSpeakingPlan": {
+    "waitSeconds": 0.8,
+    "transcriptionEndpointingPlan": {
+      "onPunctuationSeconds": 1.0,
+      "onNoPunctuationSeconds": 2.0,
+      "onNumberSeconds": 1.5
+    }
+  },
+  "stopSpeakingPlan": {
+    "numWords": 0,
+    "voiceSeconds": 0.2,
+    "backoffSeconds": 1.2
+  }
+}

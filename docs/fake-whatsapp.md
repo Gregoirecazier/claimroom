@@ -1,0 +1,7 @@
+# Fake WhatsApp end-to-end demo
+
+Set `WHATSAPP_DELIVERY_MODE=fake_whatsapp` on the API and apply the latest migration. The existing Twilio WhatsApp settings are not used by this mode. When a live Twilio phone call ends, the API creates one follow-up automatically and marks it delivered in a private browser inbox; no external WhatsApp request occurs. Opening the case retries this idempotent step if the caller number was not available when the call ended. Browser voice tests and mock calls do not create this phone follow-up.
+
+Use **Ouvrir la conversation WhatsApp** in the simulated WhatsApp section of the case. The manager interface obtains the message's existing private deposit link and opens `/fake-whatsapp#token=…`. The phone exchanges the link for a 15-minute guest session and removes the token from the address bar. Only the case and E.164 recipient bound to that message are shown. Reopen the phone from the case when the session expires.
+
+The phone can send text replies and attach images, PDFs, or MP4 files. Text replies are stored in `case_whatsapp_inbound` and appear in the manager follow-up history. Files use the existing guest deposit upload intent, signed private storage upload, checksum verification, and evidence finalization. The fake chat bubble refers to that finalized evidence; the manager sees the file in case evidence. Images and PDFs are limited to 5 MiB, MP4 to 10 MB. The phone is a test surface, not a real WhatsApp client or delivery channel.

@@ -1,0 +1,195 @@
+[
+  {
+    "dataset_case_id": "fr_active",
+    "country": "FR",
+    "plate": "AA-123-AA",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null
+  },
+  {
+    "dataset_case_id": "fr_expired",
+    "country": "FR",
+    "plate": "AA-124-AA",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": false,
+    "expected_reason": "coverage_expired"
+  },
+  {
+    "dataset_case_id": "fr_not_yet_active",
+    "country": "FR",
+    "plate": "AA-125-AA",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": false,
+    "expected_reason": "coverage_not_started"
+  },
+  {
+    "dataset_case_id": "fr_policy_unknown",
+    "country": "FR",
+    "plate": "AA-126-AA",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "policy_not_found"
+  },
+  {
+    "dataset_case_id": "fr_plate_absent",
+    "country": "FR",
+    "plate": "ZZ-999-ZZ",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "plate_not_found"
+  },
+  {
+    "dataset_case_id": "uk_active",
+    "country": "UK",
+    "plate": "AB12 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null
+  },
+  {
+    "dataset_case_id": "uk_expired",
+    "country": "UK",
+    "plate": "AB13 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": false,
+    "expected_reason": "coverage_expired"
+  },
+  {
+    "dataset_case_id": "uk_not_yet_active",
+    "country": "UK",
+    "plate": "AB14 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": false,
+    "expected_reason": "coverage_not_started"
+  },
+  {
+    "dataset_case_id": "uk_policy_unknown",
+    "country": "UK",
+    "plate": "AB15 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "policy_not_found"
+  },
+  {
+    "dataset_case_id": "uk_plate_absent",
+    "country": "UK",
+    "plate": "ZZ99 ZZZ",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "plate_not_found"
+  },
+  {
+    "dataset_case_id": "uk_partial",
+    "country": "UK",
+    "plate": "AB12 CD?",
+    "incident_date": "2026-09-25",
+    "expected_status": "ambiguous",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "plate_incomplete_or_invalid"
+  },
+  {
+    "dataset_case_id": "uk_no_correspondent",
+    "country": "UK",
+    "plate": "AB16 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_correspondent_status": "no_match"
+  },
+  {
+    "dataset_case_id": "g1_fr_active",
+    "country": "FR",
+    "plate": "FR-482-KL",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Azur Demo Auto (fictional)"
+  },
+  {
+    "dataset_case_id": "g1_uk_active",
+    "country": "UK",
+    "plate": "AB12 CDE",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Northbridge Demo Motor (fictional)",
+    "expected_correspondent_status": "matched",
+    "expected_correspondent_name": "Hexagone Demo Recours (fictional)"
+  },
+  {
+    "dataset_case_id": "g2_fr_active",
+    "country": "FR",
+    "plate": "GH-271-RM",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Loire Demo Motor (fictional)"
+  },
+  {
+    "dataset_case_id": "g2_uk_active",
+    "country": "UK",
+    "plate": "RK18 LXP",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Westhaven Demo Motor (fictional)",
+    "expected_correspondent_status": "matched",
+    "expected_correspondent_name": "Loire Demo Recours (fictional)"
+  },
+  {
+    "dataset_case_id": "g3_fr_active",
+    "country": "FR",
+    "plate": "GT-638-VN",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Alpes Demo Assurance (fictional)"
+  },
+  {
+    "dataset_case_id": "g3_uk_active",
+    "country": "UK",
+    "plate": "LM21 RZT",
+    "incident_date": "2026-09-25",
+    "expected_status": "matched",
+    "expected_valid_on_incident_date": true,
+    "expected_reason": null,
+    "expected_insurer_name": "Birchwood Demo Cover (fictional)",
+    "expected_correspondent_status": "matched",
+    "expected_correspondent_name": "Alpes Demo Recours (fictional)"
+  },
+  {
+    "dataset_case_id": "g2_uk_partial",
+    "country": "UK",
+    "plate": "RK18 L?P",
+    "incident_date": "2026-09-25",
+    "expected_status": "ambiguous",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "plate_incomplete_or_invalid"
+  },
+  {
+    "dataset_case_id": "g2_uk_alternative_absent",
+    "country": "UK",
+    "plate": "RK18 LYP",
+    "incident_date": "2026-09-25",
+    "expected_status": "no_match",
+    "expected_valid_on_incident_date": null,
+    "expected_reason": "plate_not_found"
+  }
+]

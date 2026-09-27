@@ -1,0 +1,10 @@
+schema_version: 1
+version: v1
+kind: synthetic_image_generation
+fixture: g2
+view: detail
+source_file: apps/api/claim_api/fixture_media/g2/prompt-detail.md
+prompt: |
+  Use case: photorealistic-natural. Generate ONE portrait 3:4 close-up smartphone photograph of the SAME silver Renault and SAME damage as input image 1, which is the approved wider synthetic photo. Input image 2 is the original G2 after-impact video frame and fixes the damage location.
+  Photograph from about 80 cm away at standing height, slightly looking down at the Renault's LEFT FRONT CORNER, the driver side visible on the right half of the wider photo. Fill the image with the creased silver fender above and beside the front-left wheel, raised/misaligned left bonnet edge, dark gap above and around the displaced left headlight, the headlight with most of its clear lens still present, and nearby bumper corner with the SAME localized dark scuff marks. Include part of that front wheel and the grey bumper strip to locate the damage. Match every fold, panel gap, scrape, paint color and damage severity to image 1; no additional broken glass, no newly missing parts, no removed wheel, no new impact. The rest of the car may be naturally out of frame.
+  Ordinary daylight phone photo, realistic textures, dry asphalt, same lighting as image 1, believable sharpness, no cinematic look. French plate remains GH-271-RM if any portion enters the frame; natural cropping is fine. No people/hands/tools in this close-up. No arrows, text labels, watermark, video controls or collage. Fictional synthetic insurance-demo image, one photograph.

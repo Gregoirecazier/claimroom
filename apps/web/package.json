@@ -1,0 +1,31 @@
+{
+  "name": "claim-subrogation-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "node --test tests/*.test.mjs demo/*.test.mjs && vitest run src",
+    "preview": "vite preview",
+    "demo": "vite --config vite.demo.config.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.2",
+    "@vapi-ai/web": "2.7.1",
+    "leaflet": "^1.9.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@types/leaflet": "^1.9.22",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "@vitejs/plugin-react": "4.4.1",
+    "jsdom": "^26.1.0",
+    "typescript": "5.8.3",
+    "vite": "6.4.3",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "dataset_id": "s16-matrix-reference",
+  "version": 1,
+  "answers": [
+    {
+      "eval_id": "V01",
+      "expected_summary": "Intake cible 15–20 s ; au plus une question utile, puis annonce du SMS et du dépôt.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Récit complet : lieu, circonstances, véhicule UK, fuite, aucun blessé."
+    },
+    {
+      "eval_id": "V02",
+      "expected_summary": "Demander lieu et éléments indispensables ; transférer le reste dans le suivi sans inventer.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "« Quelqu’un m’est rentré dedans. »"
+    },
+    {
+      "eval_id": "V03",
+      "expected_summary": "Ne pas redemander si l’assuré roulait.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "« J’étais arrêté. »"
+    },
+    {
+      "eval_id": "V04",
+      "expected_summary": "Heure d’appel utilisée comme estimation, avec provenance ; ne pas demander une heure déjà déductible.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "« Je viens d’avoir un accident. »"
+    },
+    {
+      "eval_id": "V05",
+      "expected_summary": "Demander une heure approximative ; ne pas substituer automatiquement l’heure d’appel.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "« L’accident a eu lieu ce matin. »"
+    },
+    {
+      "eval_id": "V06",
+      "expected_summary": "Sortie du parcours standard et escalade prévue ; pas de priorité donnée à l’upload.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Blessure grave ou danger immédiat."
+    },
+    {
+      "eval_id": "S01",
+      "expected_summary": "Résumé fidèle, lien fourni correctement repris, consignes vue d’ensemble + détail + plaque si utile, mention de la vidéo disponible. La livraison et les droits d’accès sont évalués en UX.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Appel complet et lien du dossier fourni à l’agent."
+    },
+    {
+      "eval_id": "S02",
+      "expected_summary": "Demander uniquement les éléments manquants utiles et les preuves correspondantes ; ne pas refaire tout le questionnaire.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Informations omises pendant l’appel."
+    },
+    {
+      "eval_id": "S03",
+      "expected_summary": "Inconnue explicitement conservée ; aucune précision inventée dans le résumé.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Heure ou identité du tiers inconnue."
+    },
+    {
+      "eval_id": "I01",
+      "expected_summary": "Véhicules, plaques et dégâts correctement extraits et associés, avec sources et incertitudes adaptées aux vues fournies.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G1 + photos : BMW `AB12 CDE` et Peugeot `FR-482-KL` confirmées par Greg."
+    },
+    {
+      "eval_id": "I02",
+      "expected_summary": "Lecture partielle, candidats incertains ou abstention acceptés ; aucune plaque complète déclarée certaine sans preuve.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G2 : `RK18` perceptible, fin `LXP` ou `LYP` incertaine ; variante entièrement floutée optionnelle."
+    },
+    {
+      "eval_id": "I03",
+      "expected_summary": "Associer la plaque bleue au véhicule non impliqué avec source visuelle ; ne pas la confondre avec la plaque Opel ni l'utiliser comme destinataire du recours.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G2 : Renault arrêtée, Opel impliquée dans un choc avant décalé, voiture bleue non impliquée avec plaque `XY34 ZTR` lisible."
+    },
+    {
+      "eval_id": "I04",
+      "expected_summary": "Lire la plaque réellement présente et la rattacher à la Peugeot assurée plutôt qu’au tiers.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Photo d’ensemble Peugeot montrant `FR-482-KL`."
+    },
+    {
+      "eval_id": "I05",
+      "expected_summary": "Décrire les dommages visibles ; ne pas déduire à elles seules le mouvement, la fuite ou la responsabilité.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Photos des dégâts seules."
+    },
+    {
+      "eval_id": "I06",
+      "expected_summary": "Préserver la nuance ; ne pas affirmer que la BMW est vide ni inventer une silhouette, une ceinture ou une identité.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G1 : conducteur possiblement visible dans la Peugeot, aucun conducteur discernable dans la BMW selon Greg."
+    },
+    {
+      "eval_id": "N01",
+      "expected_summary": "Bon assureur de la mock DB, puis recherche du correspondant français.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Plaque UK corroborée et couverture active à la date du sinistre."
+    },
+    {
+      "eval_id": "N02",
+      "expected_summary": "`no_match` / raison `plate_not_found` dans l’API actuelle, aucun assureur inventé.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Plaque absente de la base."
+    },
+    {
+      "eval_id": "N03",
+      "expected_summary": "Anomalie et branche alternative ; aucune couverture active supposée.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Police expirée avant l’accident."
+    },
+    {
+      "eval_id": "N04",
+      "expected_summary": "Absence de couverture à cette date explicitement signalée.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Police démarrant après l’accident."
+    },
+    {
+      "eval_id": "N05",
+      "expected_summary": "Pas de plaque ni de lookup présentés comme confirmés ; un match de base ne résout pas l’incertitude visuelle. Demander une preuve supplémentaire.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G2 : candidats `RK18 LXP` / `RK18 LYP` non départagés visuellement."
+    },
+    {
+      "eval_id": "N06",
+      "expected_summary": "Manque explicite ; aucune adresse ni route de recours inventée.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Assureur trouvé, correspondant absent."
+    },
+    {
+      "eval_id": "L01",
+      "expected_summary": "Mécanisme correctement sourcé, sans remplacer la marche arrière par un choc avant/arrière ; analyse avec limites et revue humaine.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G1 : Peugeot arrêtée, tiers reculant ; coin arrière droit du tiers contre arrière gauche Peugeot ; recul puis départ en marche avant."
+    },
+    {
+      "eval_id": "L02",
+      "expected_summary": "Dégâts et présence observables ; aucune conclusion catégorique sur la causalité.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Extrait démarrant après le choc."
+    },
+    {
+      "eval_id": "L03",
+      "expected_summary": "Citer la phrase du récit et le passage vidéo qui la contredit ; décrire fidèlement le déplacement Toyota et demander une clarification sans accusation de fraude. Un récit cohérent n’appelle pas de contradiction.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "G3 : Citroën gris clair avançant, avant gauche contre le milieu du côté passager Toyota ; Toyota légèrement déportée puis revenue près de sa position initiale. Ajouter au test le récit fictif volontairement contradictoire du conducteur Citroën : « j’étais arrêté »."
+    },
+    {
+      "eval_id": "C01",
+      "expected_summary": "Signaler explicitement le devis manquant et l’incomplétude ; ne pas présenter le dossier final chiffré comme complet ni inventer de montant. Le blocage effectif côté application est évalué par U05.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Devis absent du dossier final."
+    },
+    {
+      "eval_id": "C02",
+      "expected_summary": "Produire une synthèse exploitable pour la revue humaine, avec résultats sourcés et incertitudes explicites. L’écriture et l’affichage du statut serveur `review_ready` relèvent du parcours UX U01, pas d’une auto-déclaration de l’agent.",
+      "source_document": "docs/demo/evaluation-agents.md",
+      "scenario_note": "Pièces requises, lookup et analyse cohérente disponibles."
+    },
+    {
+      "eval_id": "S04",
+      "expected_summary": "Statut conservé, échec visible, même SMS non envoyé plusieurs fois par erreur.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Retry ou livraison échouée."
+    },
+    {
+      "eval_id": "S05",
+      "expected_summary": "Dépôt rattaché uniquement au dossier autorisé ; pas de mélange de pièces.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Deux dossiers ou mauvais lien d’accès."
+    },
+    {
+      "eval_id": "U01",
+      "expected_summary": "Récit, lieu/date, véhicules assuré/tiers, photos agrandissables et vidéo accessibles au bon dossier. Vérifier le passage serveur à `review_ready` selon ses conditions actuelles et son affichage cohérent.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Ouvrir le compte rendu ; utiliser un dossier complet de référence pour le parcours de préparation à la revue."
+    },
+    {
+      "eval_id": "U02",
+      "expected_summary": "Manque ou erreur visible ; ne pas présenter l’analyse vidéo comme réalisée.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Vidéo absente, illisible ou lien inaccessible."
+    },
+    {
+      "eval_id": "U03",
+      "expected_summary": "Total TTC 1 240 € ; origine fictive visible, jamais présenté comme un montant extrait des images.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Fournir une estimation synthétique séparée : 480 + 180 + 260 + 240 + 80 €."
+    },
+    {
+      "eval_id": "U04",
+      "expected_summary": "Enregistrement refusé avec correction demandée ; calculs en centimes.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Montant négatif, invalide, non fini ou trop de décimales."
+    },
+    {
+      "eval_id": "U05",
+      "expected_summary": "Manque ou incohérence visible ; validation du dossier final chiffré bloquée jusqu’à résolution selon les règles à implémenter. Le brouillon de demande actuel peut rester possible sans devis : ne pas confondre les deux parcours.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Devis absent (C01) ou total différent de l’estimation."
+    },
+    {
+      "eval_id": "U06",
+      "expected_summary": "Nouvelle version, total et message recalculés, modification traçable.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Gestionnaire modifie montant, récit ou commentaire."
+    },
+    {
+      "eval_id": "U07",
+      "expected_summary": "Bon compte rendu, montant sourcé, bonnes pièces et destinataire. Préserver les autorisations du stockage privé ; une URL signée temporaire ne constitue pas une pièce durable. Aucun lien blob local ni média substitué. L’ancien export HTML public n’est plus le parcours actuel.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Préparer un package ou aperçu pour une version déterminée."
+    },
+    {
+      "eval_id": "A01",
+      "expected_summary": "Message et package correspondant à cette version ; reçu explicite, statut simulé/réel sans ambiguïté.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Gestionnaire approuve une version complète puis confirme la transmission."
+    },
+    {
+      "eval_id": "A02",
+      "expected_summary": "Envoi impossible ; règle appliquée côté serveur pour l’intégration.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Aucune approbation humaine."
+    },
+    {
+      "eval_id": "A03",
+      "expected_summary": "Ancienne approbation invalidée ; nouvelle revue exigée.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Montant, récit, destinataire ou pièce modifié après validation."
+    },
+    {
+      "eval_id": "A04",
+      "expected_summary": "API refuse la version obsolète ; aucun package non approuvé transmis.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Envoi d’une version ancienne après un amendement."
+    },
+    {
+      "eval_id": "A05",
+      "expected_summary": "Un seul envoi par version / clé d’idempotence ; même reçu retourné.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Double clic, retry ou réponse réseau tardive."
+    },
+    {
+      "eval_id": "A06",
+      "expected_summary": "API refuse approbation et envoi ; masquer un bouton seul est insuffisant.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Mauvais rôle ou autre organisation."
+    },
+    {
+      "eval_id": "A07",
+      "expected_summary": "Retrouver les pièces, le brouillon, l’approbation encore valide et les reçus persistés côté serveur ; renouveler les liens signés expirés sans perdre les pièces.",
+      "source_document": "docs/demo/evaluation-ux.md",
+      "scenario_note": "Rechargement du navigateur puis réouverture autorisée du dossier."
+    }
+  ]
+}

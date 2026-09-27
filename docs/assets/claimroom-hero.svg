@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+<title id="title">Claimroom — From accident to a claim you can review.</title>
+<desc id="desc">AI-assisted motor claims: collect evidence, reason with sources, and keep a human in control.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102f29"/><stop offset="1" stop-color="#1d5043"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".035"/></pattern></defs>
+<rect width="1440" height="520" rx="24" fill="url(#bg)"/><rect width="1440" height="520" rx="24" fill="url(#grid)"/>
+<circle cx="1260" cy="20" r="300" fill="#92d4ae" opacity=".05"/><circle cx="1390" cy="510" r="260" fill="#92d4ae" opacity=".06"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+<path d="M72 63l17-17 17 17-17 17z" fill="none" stroke="#bcdf9e" stroke-width="3"/>
+<text x="124" y="76" font-size="38" font-weight="700" fill="#fff">Claimroom<tspan fill="#bcdf9e">.</tspan></text>
+<rect x="1090" y="45" width="278" height="34" rx="17" fill="#ffffff" fill-opacity=".07" stroke="#c3dfd0" stroke-opacity=".25"/>
+<text x="1229" y="67" text-anchor="middle" font-size="12" letter-spacing="2" fill="#cfdfd5">X-IA · RISE OF AGENTS X</text>
+<text x="72" y="174" font-size="58" font-weight="700" letter-spacing="-2" fill="#fff">From accident to a claim</text>
+<text x="72" y="244" font-size="58" font-weight="700" letter-spacing="-2" fill="#c5e4aa">you can review.</text>
+<text x="75" y="292" font-size="21" fill="#c5d6cf">Evidence in one place. Reasoning with sources. Human approval.</text>
+<g transform="translate(72,351)"><rect width="390" height="94" rx="14" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="24" y="32" font-size="12" letter-spacing="2" fill="#bedda5">01 / COLLECT</text><text x="24" y="64" font-size="23" fill="#fff">Voice, photos &amp; documents</text></g>
+<path d="M475 396h24m-8-8 8 8-8 8" fill="none" stroke="#bedda5" stroke-width="2"/>
+<g transform="translate(514,351)"><rect width="390" height="94" rx="14" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="24" y="32" font-size="12" letter-spacing="2" fill="#bedda5">02 / REASON</text><text x="24" y="64" font-size="23" fill="#fff">Traceable AI proposals</text></g>
+<path d="M917 396h24m-8-8 8 8-8 8" fill="none" stroke="#bedda5" stroke-width="2"/>
+<g transform="translate(956,351)"><rect width="412" height="94" rx="14" fill="#c5e4aa"/><text x="24" y="32" font-size="12" letter-spacing="2" fill="#244333">03 / REVIEW</text><text x="24" y="64" font-size="23" font-weight="600" fill="#15372c">The handler has the final say</text></g>
+<text x="72" y="486" font-size="12" letter-spacing="1.3" fill="#9dbeb0">SYNTHETIC CLAIMS DEMO · OPENAI + PIPELEX · REACT + FASTAPI</text>
+</g></svg>

@@ -1,0 +1,73 @@
+.voice-test { min-height:100vh; color:#172d34; background:#f4f7f3; font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
+.voice-test-header { display:flex; align-items:center; justify-content:space-between; padding:16px clamp(22px,5vw,76px); border-bottom:1px solid #d7e4dc; background:#fff; }
+.voice-test-header a { color:#123b37; font-size:1.2rem; font-weight:800; text-decoration:none; letter-spacing:-.04em; }
+.voice-test-header span { color:#53766d; font-size:.7rem; font-weight:800; letter-spacing:.14em; }
+.voice-test-shell { max-width:1370px; margin:auto; padding:30px 24px 64px; }
+.voice-test-intro { margin-bottom:24px; }
+.voice-test-kicker,.voice-test-label { margin:0; color:#247c63; font-size:.69rem; font-weight:800; letter-spacing:.14em; }
+.voice-test h1 { margin:5px 0 6px; font-size:clamp(1.9rem,3vw,2.7rem); line-height:1.1; letter-spacing:-.045em; }
+.voice-test-intro > p:not(.voice-test-kicker) { margin:0; color:#526b6a; font-size:.94rem; line-height:1.5; }
+.voice-test-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:13px; }
+.voice-test-tags span { border:1px solid #c4ddd1; border-radius:999px; padding:5px 10px; color:#236d5b; background:#eaf7ef; font-size:.7rem; font-weight:700; }
+.voice-test-workspace { display:grid; gap:16px; }
+.voice-test-callbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; padding:17px 22px; border:1px solid #dce7df; border-radius:16px; background:#fff; box-shadow:0 8px 30px #183e280b; }
+.voice-test-callbar-main { display:flex; align-items:center; gap:15px; flex:1 1 380px; min-width:0; }
+.voice-test-call-indicator { width:12px; height:12px; flex:none; border-radius:50%; background:#98aaa1; box-shadow:0 0 0 5px #edf3ee; }
+.voice-test-call-indicator-active { background:#25a66c; box-shadow:0 0 0 5px #dcf6e8; animation:voice-test-pulse 2s ease-in-out infinite; }
+.voice-test-call-indicator-connecting,.voice-test-call-indicator-ending { background:#d49a3c; box-shadow:0 0 0 5px #fff0d8; }
+.voice-test-call-indicator-error { background:#ae4b44; box-shadow:0 0 0 5px #fff0ed; }
+@keyframes voice-test-pulse { 50% { box-shadow:0 0 0 8px #dcf6e8; } }
+.voice-test-callbar h2 { margin:4px 0 0; font-size:1.1rem; letter-spacing:-.025em; }
+.voice-test-hint { margin:3px 0 0; color:#6b8078; font-size:.78rem; line-height:1.4; }
+.voice-test-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.voice-test button { appearance:none; border:0; border-radius:9px; background:#176d59; color:#fff; font:inherit; font-size:.87rem; font-weight:750; cursor:pointer; padding:11px 17px; }
+.voice-test button:hover:not(:disabled) { background:#0e5948; }
+.voice-test button:disabled { opacity:.5; cursor:not-allowed; }
+.voice-test button.voice-test-stop { background:#a3433d; }
+.voice-test button.voice-test-stop:hover { background:#81342f; }
+.voice-test-error { flex-basis:100%; margin:0; color:#8f302e; background:#fff1ee; border:1px solid #f4d2cb; border-radius:9px; padding:9px 12px; font-size:.83rem; }
+.voice-test-case-link { flex-basis:100%; color:#176d59; font-size:.8rem; font-weight:700; text-decoration:none; }
+.voice-test-case-link:hover { text-decoration:underline; }
+.voice-test-live-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:start; gap:16px; }
+.voice-test-live-grid > .ir-voice-section { min-height:420px; }
+.voice-test-live-grid .ir-voice-turns { max-height:min(65vh,680px); padding-bottom:24px; }
+.voice-test-live-grid .ir-voice-turn p { font-size:13px; }
+.voice-test-live-grid .ir-voice-checklist tbody th strong,.voice-test-live-grid .ir-voice-checklist tbody td { font-size:12px; }
+.voice-test-empty { margin:0; padding:22px 24px; color:#809188; font-size:.85rem; }
+.voice-test-review .ir-voice-panel { margin:0; }
+.voice-test-card { background:#fff; border:1px solid #dce7df; border-radius:16px; box-shadow:0 8px 30px #183e280b; padding:24px; }
+.voice-test-card h2 { margin:0 0 10px; font-size:1.2rem; }
+.voice-test-waiting { max-width:720px; }
+.voice-test-waiting p { color:#60756b; font-size:.87rem; }
+.voice-test-footnote { margin-top:20px; color:#71847e; font-size:.76rem; line-height:1.5; }
+.voice-test-form { display:grid; gap:14px; max-width:430px; }
+.voice-test-form label { display:grid; gap:6px; color:#38554c; font-weight:650; }
+.voice-test-form input { border:1px solid #c6d9cd; border-radius:10px; padding:11px 13px; font:inherit; }
+@media (max-width:920px) { .voice-test-live-grid { grid-template-columns:1fr; } .voice-test-live-grid > .ir-voice-section { min-height:0; } }
+@media (max-width:650px) { .voice-test-shell { padding:20px 14px 48px; } .voice-test-intro > p:not(.voice-test-kicker) { font-size:.86rem; } .voice-test-tags { margin-top:10px; } .voice-test-callbar { padding:16px; } .voice-test-callbar-main { flex-basis:100%; } .voice-test-actions { width:100%; } .voice-test-actions button { width:100%; } }
+@media (prefers-reduced-motion:reduce) { .voice-test-call-indicator { animation:none; } }
+.voice-test-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.voice-test-whatsapp { grid-column: 1 / -1; max-width: 760px; width: 100%; margin: 2px auto 0; border: 1px solid #cbded4; border-radius: 18px; overflow: hidden; background: #e9f0e9; box-shadow: 0 20px 50px #183e281c; }
+.voice-test-whatsapp-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; color: white; background: #075e54; }
+.voice-test-whatsapp-head strong, .voice-test-whatsapp-head small { display: block; }
+.voice-test-whatsapp-head strong { font-size: 1rem; }
+.voice-test-whatsapp-head small { margin-top: 2px; color: #d2eee5; font-size: .76rem; }
+.voice-test-whatsapp-avatar { display: grid; place-items: center; flex: 0 0 38px; height: 38px; border-radius: 50%; color: #075e54; background: #d5f4e8; font-weight: 800; }
+.voice-test-whatsapp-dots { margin-left: auto; letter-spacing: 2px; }
+.voice-test-whatsapp-feed { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 270px; max-height: 430px; overflow: auto; padding: 18px; background: radial-gradient(circle at 80% 20%, #f1f5ed, transparent 52%), #e5ede6; }
+.voice-test-whatsapp-disclaimer { align-self: center; max-width: 90%; margin: 0 0 8px; padding: 7px 12px; border-radius: 7px; color: #5f675f; background: #fff9e8; text-align: center; font-size: .74rem; }
+.voice-test-whatsapp-empty { color: #657b70; }
+.voice-test-whatsapp-bubble { max-width: min(84%, 480px); padding: 10px 13px; border-radius: 3px 13px 13px 13px; background: #fff; color: #1d342b; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 2px 5px #173b2310; }
+.voice-test-whatsapp-bubble.you { align-self: flex-end; border-radius: 13px 3px 13px 13px; background: #d8f8cb; }
+.voice-test-whatsapp-error { margin: 0; padding: 10px 18px; color: #8f302e; background: #fff1ee; font-size: .87rem; }
+.voice-test-whatsapp-compose { display: grid; gap: 10px; padding: 14px; background: #f6faf7; }
+.voice-test-whatsapp-compose form, .voice-test-whatsapp-photo-row { display: flex; gap: 9px; align-items: center; }
+.voice-test-whatsapp-compose form input { flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid #cadbd0; border-radius: 999px; font: inherit; }
+.voice-test-whatsapp-compose button { padding: 11px 16px; border-radius: 999px; white-space: nowrap; }
+.voice-test-whatsapp-photo-row label { display: flex; align-items: center; gap: 8px; color: #4d685d; font-size: .83rem; }
+.voice-test-whatsapp-photo-row select { max-width: 180px; padding: 9px; border: 1px solid #cadbd0; border-radius: 8px; background: white; font: inherit; }
+.voice-test-whatsapp-tip { margin: 0; color: #567365; font-size: .84rem; }
+.voice-test-whatsapp-choices { display: flex; gap: 8px; }
+.voice-test .voice-test-whatsapp-choices button { color: #176d59; background: #e4f4e9; padding: 7px 13px; font-size: .85rem; }
+.voice-test button.voice-test-whatsapp-skip { justify-self: start; color: #176d59; background: transparent; padding: 5px 2px; font-size: .85rem; }
+@media (max-width: 560px) { .voice-test-whatsapp-photo-row { flex-wrap: wrap; } .voice-test-whatsapp-compose form input { width: 100%; } }

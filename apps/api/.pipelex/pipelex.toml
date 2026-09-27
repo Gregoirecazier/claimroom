@@ -1,0 +1,19 @@
+# Pipelex logs may include generated claim text. The API emits its own
+# metadata-only Logfire spans and suppresses Pipelex console/report output.
+[runtime.log]
+default_log_level = "OFF"
+console_log_target = "stderr"
+console_print_target = "stderr"
+pretty_print_mode = "silent"
+is_console_logging_enabled = false
+
+[runtime.log.package_log_levels]
+pipelex = "OFF"
+
+[runtime.reporting]
+is_log_costs_to_console = false
+
+# Vercel's function bundle is read-only. Keep case snapshots in Postgres and
+# bounded metadata spans in Logfire instead of local NDJSON execution traces.
+[runtime.tracing]
+is_enabled = false

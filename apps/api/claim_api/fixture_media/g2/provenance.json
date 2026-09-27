@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "scenario": "G2",
+  "synthetic": true,
+  "application_status": "repository_assets_only_not_automatically_seeded",
+  "source_video": {
+    "file": "video-g2.mp4",
+    "original_filename": "cea24e58-62ab-4fb7-8cd0-e1f32f50bf92.mp4",
+    "sha256": "4f97e6c71532ec7e427a47d65764e5d46efc68940c89b1fcd48a1beb3936d6f5",
+    "size_bytes": 5113464,
+    "mime_type": "video/mp4",
+    "duration_seconds_rounded": 5.042,
+    "dimensions_px": [
+      1280,
+      720
+    ],
+    "transcoded": false
+  },
+  "photos": [
+    {
+      "file": "photo-renault-ensemble.png",
+      "sha256": "2bd5a458c5b712d88accf2750d1a75fe92ef1aa4d5a3e174a0641fb0e7342aa5",
+      "size_bytes": 2607398,
+      "mime_type": "image/png",
+      "dimensions_px": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "generation_tool": "image_gen",
+      "subject": {
+        "vehicle": "renault",
+        "plate_reference": "GH-271-RM",
+        "role_in_scenario": "insured"
+      },
+      "prompt_file": "prompt-ensemble.md",
+      "source_video": "video-g2.mp4",
+      "generated_photo_reference": null,
+      "inspected_video_frame_times_seconds": [
+        0.0,
+        3.0,
+        4.791666666666667
+      ]
+    },
+    {
+      "file": "photo-renault-detail.png",
+      "sha256": "b1d137905f3fe678c3b50253e703bd042efa0710c97716846d134bf3cb2d9b80",
+      "size_bytes": 2218499,
+      "mime_type": "image/png",
+      "dimensions_px": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "generation_tool": "image_gen",
+      "subject": {
+        "vehicle": "renault",
+        "plate_reference": "GH-271-RM",
+        "role_in_scenario": "insured"
+      },
+      "prompt_file": "prompt-detail.md",
+      "source_video": "video-g2.mp4",
+      "generated_photo_reference": "photo-renault-ensemble.png",
+      "inspected_video_frame_times_seconds": [
+        0.0,
+        3.0,
+        4.791666666666667
+      ]
+    }
+  ],
+  "note": "Synthetic reconstructed views generated from video frames, not independent observations. Partly occluded surfaces are reconstructed. Prompts and this reference metadata are for maintainers and evaluators, not input to the evaluated agent."
+}

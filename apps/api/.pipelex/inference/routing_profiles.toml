@@ -1,0 +1,5 @@
+active = "openai_only"
+
+[profiles.openai_only]
+description = "Route claim analysis through the server-side OpenAI API key"
+default = "openai"

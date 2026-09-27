@@ -1,0 +1,13 @@
+.ir-refined .aj-repair-vehicle + .aj-repair-vehicle { border-top:1px solid #d8e4d8; margin-top:24px; padding-top:20px; }
+.ir-refined .aj-repair-role { margin:-6px 0 18px; }
+.ir-refined .aj-repair-addition { margin-top:20px; }
+.ir-refined .aj-repair-addition tbody th { position:relative; padding-left:24px; }
+.ir-refined .aj-addition-sign { display:inline-block; width:24px; color:#528365; font-size:17px; font-weight:500; }
+.ir-refined .aj-repair-addition tbody .aj-addition-sign { position:absolute; left:0; }
+.ir-refined .aj-repair-addition td { width:48%; }
+.ir-refined .aj-repair-addition tfoot { background:#edf3ed; }
+.ir-refined .aj-repair-addition tfoot th,.ir-refined .aj-repair-addition tfoot td { padding:16px 8px; vertical-align:middle; }
+.ir-refined .aj-repair-addition tfoot th { padding-left:0; }
+.ir-refined .aj-repair-pending { list-style:none; padding:0; margin:20px 0 0; }
+.ir-refined .aj-repair-pending li { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:12px 0; border-bottom:1px solid #e3eade; font-size:12px; }
+.ir-refined .aj-repair-pending li>span:last-child { flex-shrink:0; color:var(--aj-sage); font-size:11px; }
